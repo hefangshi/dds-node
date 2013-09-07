@@ -4,7 +4,7 @@
     "description": "A dds node extension",
     "author": "hefangshi@gmail.com",
     "repository":"https://github.com/hefangshi/dds-node.git",
-    "main": "index.js",
+    "main": "./index",
     "engines": {
         "node": "0.4.x"
     }
