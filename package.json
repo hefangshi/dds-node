@@ -3,14 +3,8 @@
     "version": "0.1.0",
     "description": "A dds node extension",
     "author": "hefangshi@gmail.com",
-    "dependencies": {
-    },
-    "devDependencies": {
-    },
-    "main": "index",
-    "scripts": {
-        "install": "make && make install"
-    },
+    "repository":"https://github.com/hefangshi/dds-node.git",
+    "main": "index.js",
     "engines": {
         "node": "0.4.x"
     }

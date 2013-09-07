@@ -17,9 +17,7 @@ struct async_req {
 
 void DoAsync (uv_work_t *r) {
   async_req *req = reinterpret_cast<async_req *>(r->data);
-
-  ddTableResults result;
-  CalcDDtablePBN(pbn,&req->output);
+  CalcDDtablePBN(req->input,&req->output);
 }
 
 void AfterAsync (uv_work_t *r) {
@@ -32,7 +30,7 @@ void AfterAsync (uv_work_t *r) {
         Handle<v8::Array> v8row = v8::Array::New(5);
         for (int j = 0; j < 5; ++j)
         {
-            v8row->Set(j, v8::Integer::New(req->output->resTable[i][j]));
+            v8row->Set(j, v8::Integer::New(req->output.resTable[i][j]));
         }
         v8Res->Set(i, v8row);
   }
