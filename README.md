@@ -5,3 +5,8 @@ A node extension for Bo Haglund  bridge double dummy solver. http://privat.bahnh
 
 Implemented:
 CalcDDtablePBN
+
+```bash
+npm install mysql@2.0.0-alpha9
+```
+
