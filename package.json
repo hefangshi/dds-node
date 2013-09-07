@@ -1,0 +1,17 @@
+{
+    "name": "dds-node",
+    "version": "0.1.0",
+    "description": "A dds node extension",
+    "author": "hefangshi@gmail.com",
+    "dependencies": {
+    },
+    "devDependencies": {
+    },
+    "main": "index",
+    "scripts": {
+        "install": "make && make install"
+    },
+    "engines": {
+        "node": "0.4.x"
+    }
+}
