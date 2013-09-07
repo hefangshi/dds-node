@@ -5380,7 +5380,7 @@ int NextMove(struct pos *posPoint, int depth) {
 
 int DumpInput(int errCode, struct deal dl, int target,
     int solutions, int mode) {
-
+  return 0;
   FILE *fp;
   int i, j, k;
   unsigned short ranks[4][4];

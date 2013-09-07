@@ -12,34 +12,33 @@ struct async_req {
   uv_work_t req;
   ddTableDealPBN input;
   ddTableResults output;
+  int errorCode;
   Persistent<Function> callback;
 };
 
 void DoAsync (uv_work_t *r) {
   async_req *req = reinterpret_cast<async_req *>(r->data);
-  CalcDDtablePBN(req->input,&req->output);
+  int ret = CalcDDtablePBN(req->input,&req->output);
+  req->errorCode = ret;
 }
 
 void AfterAsync (uv_work_t *r) {
   HandleScope scope;
   async_req *req = reinterpret_cast<async_req *>(r->data);
-
   Handle<v8::Array> v8Res = v8::Array::New(4);
   for (int i = 0; i < 4; ++i)
   {
-        Handle<v8::Array> v8row = v8::Array::New(5);
-        for (int j = 0; j < 5; ++j)
-        {
-            v8row->Set(j, v8::Integer::New(req->output.resTable[i][j]));
-        }
-        v8Res->Set(i, v8row);
+    Handle<v8::Array> v8row = v8::Array::New(5);
+    for (int j = 0; j < 5; ++j)
+    {
+      v8row->Set(j, v8::Integer::New(req->output.resTable[i][j]));
+    }
+    v8Res->Set(i, v8row);
   }
-
-  Handle<Value> argv[1] = { v8Res };
-
+  Handle<Value> argv[2] = {v8::Integer::New(req->errorCode), v8Res };
   TryCatch try_catch;
 
-  req->callback->Call(Context::GetCurrent()->Global(), 1, argv);
+  req->callback->Call(Context::GetCurrent()->Global(), 2, argv);
 
   // cleanup
   req->callback.Dispose();
