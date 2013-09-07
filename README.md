@@ -7,6 +7,6 @@ Implemented:
 CalcDDtablePBN
 
 ```bash
-npm install mysql@2.0.0-alpha9
+npm install dds-node
 ```
 
