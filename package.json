@@ -1,11 +1,8 @@
 {
     "name": "dds-node",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "A dds node extension",
     "author": "hefangshi@gmail.com",
     "repository":"https://github.com/hefangshi/dds-node.git",
-    "main": "./index",
-    "engines": {
-        "node": "0.4.x"
-    }
+    "main": "./index"
 }

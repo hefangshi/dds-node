@@ -25,11 +25,11 @@ void DoAsync (uv_work_t *r) {
 void AfterAsync (uv_work_t *r) {
   HandleScope scope;
   async_req *req = reinterpret_cast<async_req *>(r->data);
-  Handle<v8::Array> v8Res = v8::Array::New(4);
-  for (int i = 0; i < 4; ++i)
+  Handle<v8::Array> v8Res = v8::Array::New(5);
+  for (int i = 0; i < 5; ++i)
   {
-    Handle<v8::Array> v8row = v8::Array::New(5);
-    for (int j = 0; j < 5; ++j)
+    Handle<v8::Array> v8row = v8::Array::New(4);
+    for (int j = 0; j < 4; ++j)
     {
       v8row->Set(j, v8::Integer::New(req->output.resTable[i][j]));
     }
